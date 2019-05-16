@@ -1,23 +1,156 @@
-.App {
-  text-align: center;
-}
+@import url("https://necolas.github.io/normalize.css/8.0.0/normalize.css");
+@import url("https://fonts.googleapis.com/css?family=Slabo+27px");
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.container {
+.App-header {
   /* background-color: #282c34; */
   background: #C9D6FF;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to bottom, #E2E2E2, #C9D6FF);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to bottom, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100vh;
+}
+
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background: #e96443;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #904e95, #e96443);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #904e95, #e96443);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.buttom {
+  background-color: #00838F!important;
+  font-size: 16px;
+  width: 100%;
+  padding: 15px;
   color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.buttom:hover {
+  cursor: pointer;
+}
+.container-form {
+  margin: auto;
+  background-color: white;
+  width: 45%;
+  height: 55%;
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  box-shadow: 3px 5px 20px #888888;
+}
+
+.title-header {
+  color: #424242;
+  font-size: 2rem;
+  margin: 10px;
+  font-family: 'Fjalla One', sans-serif;
+  text-align: center;
+}
+
+.error {
+  background-color: #FBE9E7;
+  border: 1px solid #F4511E;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #F4511E;
+}
+.correct {
+  background-color: rgb(211, 249, 187);
+  border: 1px solid rgb(50, 167, 0);
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: rgb(4, 150, 50);
+}
+.error p {
+  margin:0;
+}
+.contain {
+  margin-top: 60px;
+  background-color: white;
+  -webkit-box-shadow: 0px 21px 46px -15px rgba(0,0,0,1);
+  -moz-box-shadow: 0px 21px 46px -15px rgba(0,0,0,1);
+  box-shadow: 0px 21px 46px -15px rgba(0,0,0,1);
+}
+.result  {
+  margin-bottom: 40px;
+}
+.result div {
+  border: 1px solid #26C6DA;
+  text-align: center;
+  padding: 0  0 20px 0;
+}
+.result div p {
+  margin-bottom: 0;
+}
+.result div p.header {
+  background-color: #26C6DA;
+  margin-bottom: 10px;
+  color:white;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+
+span.result {
+  position: relative;
+  width: 100%;
+}
+
+.result-enter {
+  transition: .5s;
+  transform: translateY(120%) ;
+}
+
+.result-enter.result-enter-active{
+  transform: translateY(120%);
+}
+.result-exit{
+  transform: translateY(0);
+  transition:.5s;
+  position : absolute;
+  left: 0;
+  bottom : 0;
+  width: 100%;
+}
+.result-exit-active{
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+
+.gran-total {
+  text-align: center;
+  padding: .5rem;
+  border: 1px solid #26C6DA;
+  background-color: rgb(127, 224, 237);
+  margin-top: 1rem;
+}
+
+.gran-total p {
+
+}
+
+.summary {
+  padding: 1rem;
+  text-align: center;
+  background-color: #00838F;
+  color: white;
+  margin-top: 1rem;
+}
+.summary li {
+  list-style: none;
+}
+.summary h2 {
+  margin:0 0 1rem 0;
 }

@@ -11,9 +11,12 @@ const styles = {
     flexGrow: 1,
   },
   bar: {
+    height: 60,
     background: '#60a3bc' ,
     color: 'white',
-    padding: 0
+    padding: 0,
+    display: 'flex',
+    alignItems: 'center'
   }
 };
 
@@ -24,7 +27,7 @@ const Header = (props) => {
     <div className={classes.root}>
       <AppBar position="static" className={classNames(classes.bar, className)} {...other}>
         <Toolbar>
-          <h2>{title}</h2>
+          <h2 className="header-title">{title}</h2>
         </Toolbar>
       </AppBar>
     </div>

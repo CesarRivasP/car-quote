@@ -26,7 +26,17 @@ class App extends Component {
     let incrementPlan = getPlan(plan);
     // dependiendo del plan increment
     result = parseFloat(incrementPlan * result).toFixed(2);
+    // crear objeto para el resumen
+    const dataCar = {
+      brand,
+      age,
+      plan
+    }
     // ya se tiene el costo
+    this.setState({
+      result,
+      data: dataCar
+    })
   }
 
   render(){

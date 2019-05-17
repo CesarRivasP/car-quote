@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import Header from './components/header';
 import Form from './components/form';
+import Summary from './components/summary';
 import { getYearDifference, calculateBrand, getPlan } from './helpers/helpers'
 import './css/App.css';
 
 class App extends Component {
   state = {
     result: '',
-    data: {}
+    data: {},
+    isHidden: true,
   }
 
   quoteSafe = (data) => {
@@ -37,14 +39,32 @@ class App extends Component {
       result,
       data: dataCar
     })
+
+    this.displaySummary();
+  }
+
+  displaySummary = () => {
+    if(this.state.isHidden === true){
+      this.setState({ isHidden: false })
+    }
   }
 
   render(){
     return (
       <div className="App-header">
-        <Header title="Cotizador de vehiculos"/>
+        <Header
+          title="Cotizador de vehiculos"
+        />
         <div className="container-form">
-          <Form quoteSafe={this.quoteSafe} />
+          <Form
+            quoteSafe={this.quoteSafe}
+          />
+          { !this.state.isHidden &&
+              <Summary
+                data={this.state.data}
+                result={this.state.result}
+              />
+          }
         </div>
       </div>
     );

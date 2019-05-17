@@ -82,11 +82,8 @@ class Form extends Component {
   }
 
   handleChange = (name) => (event) => {
-    // console.log(event.target.value);
     // console.log(name);
     // console.log(event.target.value);
-    // console.log(this.brandRef.current);
-    // this.passBrand(event.target.value )
     this.setState({ [name]: event.target.value });
   };
 

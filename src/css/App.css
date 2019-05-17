@@ -39,10 +39,10 @@ body {
 .container-form {
   margin: auto;
   background-color: white;
-  width: 45%;
+  width: 50%;
   /* height: 55%; */
-  padding: 3rem;
-  display: flex;
+  padding: 2rem;
+  /* display: flex; */
   justify-content: center;
   box-shadow: 3px 5px 20px #888888;
 }
@@ -144,13 +144,20 @@ span.result {
 .summary {
   padding: 1rem;
   text-align: center;
-  background-color: #00838F;
-  color: white;
+  margin: 0;
+
   margin-top: 1rem;
 }
 .summary li {
+  color: #424242;
   list-style: none;
+  font-size: 0.890rem;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.46429em;
 }
 .summary h2 {
-  margin:0 0 1rem 0;
+  font-family: 'Fjalla One', sans-serif;
+  color: #424242;
+  /* margin:0 0 1rem 0; */
+  margin: 25px 5px;
 }

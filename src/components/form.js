@@ -103,13 +103,10 @@ class Form extends Component {
   }
 
   handleChange = (name) => (event) => {
-    // console.log(name);
-    // console.log(event.target.value);
     this.setState({ [name]: event.target.value });
   };
 
   handleRadioButtonChange = (name) => (event) => {
-    console.log(this.planRef.props.value);
     this.setState({ value: event.target.value});
   };
 

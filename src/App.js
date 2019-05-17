@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Header from './components/header';
 import Form from './components/form';
 import './css/App.css';
 
-function App() {
-  return (
-    <div className="App-header">
-      <Header title="Cotizador de vehiculos"/>
-      <div className="container-form">
-        <Form />
+class App extends Component {
+
+  quoteSafe = (data) => {
+    console.log(data);
+  }
+
+  render(){
+    return (
+      <div className="App-header">
+        <Header title="Cotizador de vehiculos"/>
+        <div className="container-form">
+          <Form quoteSafe={this.quoteSafe} />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;

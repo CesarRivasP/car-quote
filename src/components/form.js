@@ -21,19 +21,19 @@ const cars = [
 
 const styles = {
   formControlSelect1: {
-    marginTop: 25,
+    marginTop: 0,
     display: 'flex',
     margin: 'auto',
     maxWidth: 200,
   },
   formControlSelect2: {
-    marginTop: 25,
+    marginTop: 20,
     display: 'flex',
     margin: 'auto',
     maxWidth: 200,
   },
   formControl2: {
-    marginTop: 40,
+    marginTop: 30,
     display: 'flex',
     margin: 'auto',
     maxWidth: 120,
@@ -48,7 +48,7 @@ const styles = {
     margin: 'auto'
   },
   button: {
-    marginTop: 25,
+    marginTop: 20,
     display: 'flex',
     margin: 'auto'
   }
@@ -122,7 +122,7 @@ class Form extends Component {
     return (
       <form className="cotizar-auto" onSubmit={this.handleSubmit}>
         <h4 className="title-header">Ingrese los datos su vehiculo</h4>
-        <div style={{ margin: '30px'}}>
+        <div style={{ margin: '10px'}}>
           <div>
             <FormControl className={classes.formControlSelect1}>
               <InputLabel htmlFor="brand-native-simple">Marca</InputLabel>

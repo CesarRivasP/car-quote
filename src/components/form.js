@@ -11,7 +11,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import Button from '@material-ui/core/Button';
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
-
+import Snackbar from '@material-ui/core/Snackbar';
 
 const cars = [
   "Alfa Romeo", "BMW", "Lexus",
@@ -21,7 +21,7 @@ const cars = [
 
 const styles = {
   formControlSelect1: {
-    marginTop: 0,
+    marginTop: 5,
     display: 'flex',
     margin: 'auto',
     maxWidth: 200,
@@ -60,13 +60,25 @@ class Form extends Component {
     this.state = {
       brand: '',
       age: '',
-      plan: ''
+      plan: '',
+      open: false,
+      vertical: 'top',
+      horizontal: 'right',
+      message: ''
     }
     this.brandRef = React.createRef();  //mediante estas referencias se puede leer cualquier campo o input
     this.ageRef = React.createRef()
     this.planRef = React.createRef()
   }
 
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+
+  handleSnack = (state) => () => {
+    console.log(state);
+    this.setState({ open: true, ...state });
+ };
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -76,13 +88,22 @@ class Form extends Component {
     // console.log(this.ageRef.props.value);
     // console.log(this.planRef.props.value);
     if(!this.brandRef.props.value){
-      console.log('Debes ingresar la marca de tu vehiculo');
+      this.setState({
+        message: 'Debes ingresar la marca de tu vehiculo',
+        open: true,
+      })
     }
     else if(!this.ageRef.props.value){
-      console.log('Debes ingresar el año de tu vehiculo');
+      this.setState({
+        message: 'Debes ingresar el año de tu vehiculo',
+        open: true
+       })
     }
     else if(!this.planRef.props.value){
-      console.log('Debes ingresar el plan que quieres seleccionar');
+      this.setState({
+        message: 'Debes ingresar el plan que quieres seleccionar',
+        open: true,
+      })
     }
     else {
       // crear el objeto
@@ -100,7 +121,9 @@ class Form extends Component {
     this.setState({
       brand: '', age: ''
     })
-  }
+  };
+
+
 
   handleChange = (name) => (event) => {
     this.setState({ [name]: event.target.value });
@@ -113,6 +136,7 @@ class Form extends Component {
 
   render(){
     const { classes } = this.props;
+    const { vertical, horizontal, open } = this.state;
     const currentYear = new Date().getFullYear();
     const items = [];
     for(let i = 1994; i <= currentYear; i++){
@@ -120,8 +144,16 @@ class Form extends Component {
     }
 
     return (
-      <form className="cotizar-auto" onSubmit={this.handleSubmit}>
-        <h4 className="title-header">Ingrese los datos su vehiculo</h4>
+      <form onSubmit={this.handleSubmit}>
+        <Snackbar
+           className={classes.bar}
+           anchorOrigin={{ vertical, horizontal }}
+           open={open}
+           onClose={this.handleClose}
+           ContentProps={{ 'aria-describedby': 'message-id' }}
+           message={<span id="message-id">{this.state.message}</span>}
+         />
+        <h5 className="title-header">Ingrese los datos su vehiculo</h5>
         <div style={{ margin: '10px'}}>
           <div>
             <FormControl className={classes.formControlSelect1}>
